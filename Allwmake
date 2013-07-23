@@ -225,8 +225,12 @@ else
 
     make realclean 2>/dev/null  # for safety
 
+    touch ../bin/daDummyFile
+
     make -j $WM_NCOMPPROCS $configEnv scotch \
     && make $configOpt install
+
+    rm -f $SCOTCH_ARCH_PATH/bin/daDummyFile
 
     # cleanup, could also remove Makefile.inc
     make realclean 2>/dev/null
@@ -287,8 +291,12 @@ then
 
         make realclean 2>/dev/null  # for safety
 
+        touch ../bin/aDummyFile
+
         make -j $WM_NCOMPPROCS $configEnv ptscotch \
         && make $configOpt install
+
+        rm -f $SCOTCH_ARCH_PATH/bin/aDummyFile
 
         # cleanup, could also remove Makefile.inc
         make realclean 2>/dev/null
